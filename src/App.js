@@ -211,7 +211,7 @@ const App = () => {
             borderRadius: 2,
             marginTop: 12,
           }}
-          onClick={() => window.location.href = "http://instagram.com/"}
+          onClick={() => window.location.href = "instagram://"}
         >
           <img
             src={instagramLogo}
