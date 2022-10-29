@@ -7,8 +7,7 @@ import carouselFirstLogo from "../../carousel-1.svg";
 import carouselSecondLogo from "../../carousel-2.svg";
 import "./PostShare.css";
 import TopNav from "../TopNav/TopNav";
-
-import { saveContent } from "../../api";
+import LoginDrawer from "../LoginDrawer/LoginDrawer";
 
 const { Content } = Layout;
 const contentStyle = {
@@ -22,8 +21,10 @@ const contentStyle = {
 
 const PostShare = () => {
   const history = useHistory();
+  const [open, onClose] = useState(false);
   const [showInput, toggleShowInput] = useState(false);
   const [inputValue, setInputValue] = useState("");
+
 
   return (
     <Layout style={{ background: "#000000", height: "100vh" }}>
@@ -104,17 +105,7 @@ const PostShare = () => {
                 <Button
                   type="primary"
                   style={{ width: "100%", marginTop: 16 }}
-                  onClick={() =>
-                    saveContent({
-                      userId: "anujk",
-                      url: inputValue,
-                    }).then((response) => {
-                      const data = response.data;
-                      if (data.status === "Processing") {
-                        history.push(`/waiting/${encodeURIComponent(inputValue)}`);
-                      }
-                    })
-                  }
+                  onClick={() => onClose(true)}
                 >
                   Submit URL and claim reward
                 </Button>
@@ -123,6 +114,11 @@ const PostShare = () => {
           </div>
         </div>
       </Content>
+      <LoginDrawer
+        open={open}
+        onClose={() => onClose(!open)}
+        inputValue={inputValue}
+      />
     </Layout>
   );
 };

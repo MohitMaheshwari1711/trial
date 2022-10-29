@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import "antd/dist/antd.css";
 import "./App.css";
+import Loader from "./components/Loader/Loader";
 
 const Home = React.lazy(() => import("./components/Home/Home"));
 const PostShare = React.lazy(() => import("./components/PostShare/PostShare"));
@@ -32,13 +33,14 @@ const App = () => {
   }, [])
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loader />}>
         <Switch>
           <Route path="/waiting/:url" component={WaitingScreen} />
           <Route path="/error" component={ErrorScreen} />
           <Route path="/success" component={SuccessScreen} />
           <Route path="/share-post" exact component={PostShare} />
-          <Route path="/" component={Home} />
+          <Route path="/restaurantId=:restaurantId" exact={true} component={Home} />
+          <Route path="/" exact={true} component={Home} />
         </Switch>
     </Suspense>
   );

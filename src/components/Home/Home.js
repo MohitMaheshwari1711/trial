@@ -1,27 +1,34 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useHistory, useParams } from "react-router-dom";
 import { Button, Divider, Drawer, Space } from "antd";
 import { QuestionCircleOutlined, CloseCircleFilled } from "@ant-design/icons";
 import logo from "../../brand-logo.svg";
 import socialLogo from "../../social.svg";
 import instagramLogo from "../../instagram.svg";
+import { fetchRestaurantById } from "../../api";
+import { isMobileBrowser } from "../../utils";
 import "./Home.css";
 
-// $col-1: $col;
-// $col-2: calc(calc(calc(100vw - 72px) / 6 * 2) + 8px);
-// $col-3: calc(calc(calc(100vw - 72px) / 6 * 3) + 16px);
-// $col-4: calc(calc(calc(100vw - 72px) / 6 * 4) + 24px);
-// $col-5: calc(calc(calc(100vw - 72px) / 6 * 5) + 32px);
-// $col-6: calc(calc(calc(100vw - 72px) / 6 * 6) + 40px);
 const Home = () => {
   const history = useHistory();
+  const { restaurantId } = useParams();
   const [open, setOpen] = useState(false);
+  const [restaurantName, setRestaurantName] = useState("Noida Social");
   const showDrawer = () => {
     setOpen(true);
   };
   const onClose = () => {
     setOpen(false);
   };
+
+  useEffect(() => {
+    if (restaurantId) {
+      fetchRestaurantById(restaurantId).then((response) => {
+        const data = response.data;
+        setRestaurantName(data.restaurantName);
+      });
+    }
+  }, []);
 
   return (
     <>
@@ -66,7 +73,7 @@ const Home = () => {
                     color: "#FFFFFF",
                   }}
                 >
-                  NOIDA SOCIAL
+                  {restaurantName}
                 </div>
               </div>
             </div>
@@ -148,7 +155,7 @@ const Home = () => {
                 fontSize: 20,
               }}
             >
-              Create a post or story about your experience in Noida Social
+              {`Create a post or story about your experience in ${restaurantName}`}
             </div>
             <button
               style={{
@@ -160,7 +167,16 @@ const Home = () => {
                 borderRadius: 2,
                 marginTop: 12,
               }}
-              onClick={() => (window.location.href = "instagram://")}
+              onClick={() => {
+                if (isMobileBrowser() === "Android") {
+                  window.location.href =
+                    "intent://instagram.com/#Intent;package=com.instagram.android;scheme=https;end";
+                } else if (isMobileBrowser() === "iOS") {
+                  window.location.href = "instagram://";
+                } else {
+                  window.location.href = "https://www.instagram.com";
+                }
+              }}
             >
               <img
                 src={instagramLogo}
