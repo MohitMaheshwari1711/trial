@@ -23,6 +23,7 @@ const Home = () => {
 
   useEffect(() => {
     if (restaurantId) {
+      sessionStorage.setItem("restaurantId", restaurantId)
       fetchRestaurantById(restaurantId).then((response) => {
         const data = response.data;
         setRestaurantName(data.restaurantName);
@@ -184,7 +185,7 @@ const Home = () => {
               />
               <span
                 style={{
-                  fontSize: 16,
+                  fontSize: 16
                 }}
               >
                 Go to instagram

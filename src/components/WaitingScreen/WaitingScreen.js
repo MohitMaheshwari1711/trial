@@ -22,10 +22,7 @@ const WaitingScreen = () => {
                 if (data[0].status === "Processing") {
                   reqPool();
                 } else {
-                  return resolve({
-                    error: false,
-                    code: 200,
-                  });
+                  return resolve(data[0]);
                 }
               })
               .catch((e) => {
@@ -44,7 +41,13 @@ const WaitingScreen = () => {
 
   useEffect(() => {
     contentPolling()
-      .then(() => history.push("/success"))
+      .then((val) => {  
+        if (val.status === "Approved") {
+          history.push("/success")
+        } else {
+          history.push("/error")
+        }
+      })
       .catch(() => history.push("/error"));
   }, []);
 

@@ -1,10 +1,10 @@
 import axios from "axios";
 
+const URL = "https://populencer.herokuapp.com";
+
 export const fetchRestaurantById = async (id) => {
   try {
-    const response = await axios.get(
-      `https://86fc05f8-6669-460c-868e-763268023c68.mock.pstmn.io/restaurant/${id}`
-    );
+    const response = await axios.get(`${URL}/restaurant/${id}`);
     return response;
   } catch (error) {
     return error;
@@ -13,13 +13,11 @@ export const fetchRestaurantById = async (id) => {
 
 export const saveContent = async ({ userId, url }) => {
   try {
-    const response = await axios.post(
-      "https://86fc05f8-6669-460c-868e-763268023c68.mock.pstmn.io/content",
-      {
-        userId,
-        url,
-      }
-    );
+    const response = await axios.post(`${URL}/content`, {
+      userId,
+      url,
+      restaurantId: sessionStorage.getItem("restaurantId"),
+    });
     return response;
   } catch (error) {
     return error;
@@ -29,13 +27,10 @@ export const saveContent = async ({ userId, url }) => {
 export const getContentInfo = async (url) => {
   try {
     const response = await axios.get(
-      `https://86fc05f8-6669-460c-868e-763268023c68.mock.pstmn.io/content?url=${decodeURIComponent(
-        url
-      )}`
+      `${URL}/content?url=${decodeURIComponent(url)}`
     );
     return response;
   } catch (error) {
     return error;
   }
 };
-

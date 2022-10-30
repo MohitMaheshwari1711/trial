@@ -8,8 +8,7 @@ const { Content } = Layout;
 
 const SuccessScreen = () => {
   const history = useHistory();
-
-  console.log('-------ggggg')
+  const data = JSON.parse(sessionStorage.getItem("couponDetails"))
   return (
     <Layout style={{ background: "#000000", height: "100vh" }}>
       <TopNav showHomeIcon={true} />
