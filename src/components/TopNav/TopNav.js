@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router";
 import { Layout } from "antd";
-import socialLogo from "../../social.svg";
-import backIcon from "../../back.svg";
-import homeIcon from "../../Home.svg";
+import socialLogo from "../../static/social.svg";
+import backIcon from "../../static/back.svg";
+import homeIcon from "../../static/Home.svg";
 
 const { Header } = Layout;
 

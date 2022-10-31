@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { Layout } from "antd";
-import waitingLogo from "../../waiting.svg";
+import waitingLogo from "../../static/waiting.svg";
 import TopNav from "../TopNav/TopNav";
 import { getContentInfo } from "../../api";
 

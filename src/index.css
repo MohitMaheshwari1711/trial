@@ -1,5 +1,207 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@500;700&display=swap');
+@import "~antd/dist/antd.dark.css";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@500;700&display=swap");
 
-body {
-    background: #000000;
+.flex {
+  display: flex;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.justifyCenter {
+  justify-content: center;
+}
+
+.justifySpaceBetween {
+  justify-content: space-between;
+}
+
+.alignCenter {
+  align-items: center;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.primaryTextColor {
+  color: #ffffff;
+}
+
+.secondaryTextColor {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.robotoFont {
+  font-family: "Roboto";
+}
+
+.x-small-font {
+  font-size: 12px;
+}
+
+.small-font {
+  font-size: 14px;
+}
+
+.normal-font {
+  font-size: 16px;
+}
+
+.medium-font {
+  font-size: 20px;
+}
+
+.large-font {
+  font-size: 30px;
+}
+
+.x-large-font {
+  font-size: 38px;
+}
+
+.font-weight-200 {
+  font-weight: 200;
+}
+
+.font-weight-300 {
+  font-weight: 300;
+}
+
+.font-weight-400 {
+  font-weight: 400;
+}
+
+.font-weight-500 {
+  font-weight: 500;
+}
+
+.font-weight-600 {
+  font-weight: 600;
+}
+
+.font-weight-700 {
+  font-weight: 700;
+}
+
+.paddingLeft16 {
+  padding-left: 16px;
+}
+
+.paddingLeft24 {
+  padding-left: 16px;
+}
+
+.paddingRight16 {
+  padding-right: 16px;
+}
+
+.paddingRight24 {
+  padding-right: 16px;
+}
+
+.paddingTop8 {
+  padding-top: 8px;
+}
+
+.paddingTop12 {
+  padding-top: 12px;
+}
+
+.paddingTop16 {
+  padding-top: 16px;
+}
+
+.paddingTop24 {
+  padding-top: 24px;
+}
+
+.paddingBottom8 {
+  padding-bottom: 8px;
+}
+
+.paddingBottom12 {
+  padding-bottom: 12px;
+}
+
+.paddingBottom16 {
+  padding-bottom: 16px;
+}
+
+.paddingBottom24 {
+  padding-bottom: 24px;
+}
+
+.marginTop8 {
+  margin-top: 8px;
+}
+
+.marginTop12 {
+  margin-top: 12px;
+}
+
+.marginTop16 {
+  margin-top: 16px;
+}
+
+.marginTop24 {
+  margin-top: 24px;
+}
+
+.marginTop40 {
+  margin-top: 40px;
+}
+
+.marginTop72 {
+  margin-top: 72px;
+}
+
+.marginBottom8 {
+  margin-bottom: 8px;
+}
+
+.marginBottom12 {
+  margin-bottom: 12px;
+}
+
+.marginBottom16 {
+  margin-bottom: 16px;
+}
+
+.marginBottom24 {
+  margin-bottom: 24px;
+}
+
+.marginLeft8 {
+  margin-left: 8px;
+}
+
+.marginLeft12 {
+  margin-left: 12px;
+}
+
+.marginLeft16 {
+  margin-left: 16px;
+}
+
+.marginLeft24 {
+  margin-left: 24px;
+}
+
+.marginRight8 {
+  margin-right: 8px;
+}
+
+.marginRight12 {
+  margin-right: 12px;
+}
+
+.marginRight16 {
+  margin-right: 16px;
+}
+
+.marginRight24 {
+  margin-right: 24px;
 }

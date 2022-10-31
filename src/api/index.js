@@ -11,12 +11,12 @@ export const fetchRestaurantById = async (id) => {
   }
 };
 
-export const saveContent = async ({ userId, url }) => {
+export const saveContent = async ({ userId, url, restaurantId }) => {
   try {
     const response = await axios.post(`${URL}/content`, {
       userId,
       url,
-      restaurantId: sessionStorage.getItem("restaurantId"),
+      restaurantId
     });
     return response;
   } catch (error) {

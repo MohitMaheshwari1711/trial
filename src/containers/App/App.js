@@ -3,20 +3,18 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import "antd/dist/antd.css";
-import "./App.css";
-import Loader from "./components/Loader/Loader";
+import Loader from "../../components/Loader/Loader";
 
-const Home = React.lazy(() => import("./components/Home/Home"));
-const PostShare = React.lazy(() => import("./components/PostShare/PostShare"));
+const Home = React.lazy(() => import("../../pages/Home/Home"));
+const PostShare = React.lazy(() => import("../../pages/PostShare/PostShare"));
 const SuccessScreen = React.lazy(() =>
-  import("./components/SuccessScreen/SuccessScreen")
+  import("../../components/SuccessScreen/SuccessScreen")
 );
 const ErrorScreen = React.lazy(() =>
-  import("./components/ErrorScreen/ErrorScreen")
+  import("../../components/ErrorScreen/ErrorScreen")
 );
 const WaitingScreen = React.lazy(() =>
-  import("./components/WaitingScreen/WaitingScreen")
+  import("../../components/WaitingScreen/WaitingScreen")
 );
 
 // $col-1: $col;
@@ -28,14 +26,10 @@ const WaitingScreen = React.lazy(() =>
 
 const App = () => {
 
-  React.useEffect(() => {
-
-  }, [])
-
   return (
     <Suspense fallback={<Loader />}>
         <Switch>
-          <Route path="/waiting/:url" component={WaitingScreen} />
+          <Route path="/waiting" component={WaitingScreen} />
           <Route path="/error" component={ErrorScreen} />
           <Route path="/success" component={SuccessScreen} />
           <Route path="/share-post" exact component={PostShare} />

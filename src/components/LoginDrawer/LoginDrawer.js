@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Drawer, Space } from "antd";
 import { FacebookFilled, CloseCircleFilled } from "@ant-design/icons";
 import { Layout, Button } from "antd";
-import loginLogo from "../../login.svg";
+import loginLogo from "../../static/login.svg";
 import { saveContent } from "../../api";
 
 const LoginDrawer = ({ open, onClose, inputValue }) => {

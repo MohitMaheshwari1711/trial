@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router";
 import { Layout, Button } from "antd";
-import successLogo from "../../success.svg";
+import successLogo from "../../static/success.svg";
 import TopNav from "../TopNav/TopNav";
 
 const { Content } = Layout;

@@ -1,0 +1,86 @@
+.container {
+  display: flex !important;
+  justify-content: center;
+  align-content: center;
+}
+
+.inputContainer {
+  background-color: #d9d9d9;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.25);
+  height: 40px;
+  margin-right: 8px;
+}
+
+.deleteBtn {
+  height: 40px;
+  width: 40px;
+}
+
+.ant-carousel .slick-dots {
+  position: unset;
+  z-index: 0;
+  display: flex !important;
+  justify-content: center;
+  padding-left: 0;
+  list-style: none;
+  margin-top: 24px;
+}
+
+.ant-carousel .slick-dots li button {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  padding: 0;
+  color: #d1353500;
+  font-size: 0;
+  background: #ffff;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: all 0.5s;
+}
+
+.ant-carousel .slick-dots li.slick-active button {
+  background: #ffff;
+  opacity: 1;
+}
+
+.ant-carousel .slick-dots li.slick-active {
+  width: 16px;
+}
+
+.submitBtn {
+  width: 100%;
+}
+
+.ant-btn-dangerous.ant-btn-primary {
+  color: #fff;
+  border-color: #ff4d4f;
+  background: #ff4d4f;
+  text-shadow: 0 -1px 0 rgb(0 0 0 / 12%);
+  box-shadow: 0 2px 0 rgb(0 0 0 / 5%);
+}
+
+.ant-btn-dangerous.ant-btn-primary:hover, .ant-btn-dangerous.ant-btn-primary:focus {
+  color: #fff;
+  border-color: #ff4d4f;
+  background: #ff4d4f;
+}
+
+.ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input,
+.ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:hover {
+  background: #d9d9d9;
+  border-color: #ff4d4f;
+}
+
+.ant-form-item-explain-error {
+  color: #ff4d4f;
+}
+
+.loginLogo {
+  width: calc(calc(calc(100vw - 72px) / 6 * 4) + 24px);
+  height: calc(calc(calc(100vw - 72px) / 6 * 4) + 24px);
+}

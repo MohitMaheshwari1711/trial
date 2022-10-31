@@ -1,0 +1,57 @@
+.mainContainer {
+  height: 45vh;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.backgroundImageContainer {
+  background-image: url("https://b.zmtcdn.com/data/pictures/chains/2/308322/348dfe37e84fba7f22131948a62d8519.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.imageOverlayContainer {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.primaryWidthContainer {
+  width: calc(100% - 73px);
+}
+
+.secondaryWidthContainer {
+  width: 72px;
+  border-left: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.buttonContainer {
+  background: #3b3b3b;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.instagramLogo {
+  width: 14px;
+  height: 14px;
+  margin-right: 10px;
+}
+
+.instagramButton,
+.instagramButton:hover,
+.instagramButton:focus {
+  background-color: #d9d9d9;
+  border: 1px solid rgb(217, 217, 217);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.85);
+  margin-top: 12px;
+}
+
+.buttonHeight {
+  min-height: 40px;
+  width: 100%;
+}
