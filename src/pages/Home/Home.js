@@ -61,6 +61,8 @@ const Home = () => {
             error?.message || "Something went wrong"
           )
         );
+    } else {
+      openNotificationWithIcon("error", "Restaurant ID is missing");
     }
   }, []);
 
@@ -126,7 +128,9 @@ const Home = () => {
             <Button
               type="primary"
               className="buttonHeight normal-font"
-              onClick={() => history.push("/share-post")}
+              onClick={() =>
+                history.push(`/share-post/restaurantId=${restaurantId}`)
+              }
             >
               Continue to claim reward
             </Button>

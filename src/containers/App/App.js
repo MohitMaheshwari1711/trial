@@ -1,20 +1,17 @@
 import React, { Suspense } from "react";
-import {
-  Switch,
-  Route,
-} from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
 
 const Home = React.lazy(() => import("../../pages/Home/Home"));
 const PostShare = React.lazy(() => import("../../pages/PostShare/PostShare"));
 const SuccessScreen = React.lazy(() =>
-  import("../../components/SuccessScreen/SuccessScreen")
+  import("../../pages/SuccessScreen/SuccessScreen")
 );
 const ErrorScreen = React.lazy(() =>
-  import("../../components/ErrorScreen/ErrorScreen")
+  import("../../pages/ErrorScreen/ErrorScreen")
 );
 const WaitingScreen = React.lazy(() =>
-  import("../../components/WaitingScreen/WaitingScreen")
+  import("../../pages/WaitingScreen/WaitingScreen")
 );
 
 // $col-1: $col;
@@ -25,17 +22,40 @@ const WaitingScreen = React.lazy(() =>
 // $col-6: calc(calc(calc(100vw - 72px) / 6 * 6) + 40px);
 
 const App = () => {
-
   return (
     <Suspense fallback={<Loader />}>
-        <Switch>
-          <Route path="/waiting" component={WaitingScreen} />
-          <Route path="/error" component={ErrorScreen} />
-          <Route path="/success" component={SuccessScreen} />
-          <Route path="/share-post" exact component={PostShare} />
-          <Route path="/restaurantId=:restaurantId" exact={true} component={Home} />
-          <Route path="/" exact={true} component={Home} />
-        </Switch>
+      <Switch>
+        <Route
+          path="/error/contentId=:contentId"
+          exact={true}
+          component={ErrorScreen}
+        />
+        <Route
+          path="/success/couponId=:couponId"
+          exact={true}
+          component={SuccessScreen}
+        />
+        <Route
+          path="/share-post/restaurantId=:restaurantId"
+          exact={true}
+          component={PostShare}
+        />
+        <Route
+          path="/waiting/contentId=:contentId"
+          exact={true}
+          component={WaitingScreen}
+        />
+         <Route
+          path="/restaurantId=:restaurantId"
+          exact={true}
+          component={Home}
+        />
+         <Route
+          path="/"
+          exact={true}
+          component={Home}
+        />
+      </Switch>
     </Suspense>
   );
 };

@@ -16,7 +16,7 @@ export const saveContent = async ({ userId, url, restaurantId }) => {
     const response = await axios.post(`${URL}/content`, {
       userId,
       url,
-      restaurantId
+      restaurantId,
     });
     return response;
   } catch (error) {
@@ -24,11 +24,18 @@ export const saveContent = async ({ userId, url, restaurantId }) => {
   }
 };
 
-export const getContentInfo = async (url) => {
+export const getContentInfo = async (contentId) => {
   try {
-    const response = await axios.get(
-      `${URL}/content?url=${decodeURIComponent(url)}`
-    );
+    const response = await axios.get(`${URL}/content/${contentId}`);
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const getCouponDetails = async (couponId) => {
+  try {
+    const response = await axios.get(`${URL}/coupon/${couponId}`);
     return response;
   } catch (error) {
     return error;

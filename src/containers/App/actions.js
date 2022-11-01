@@ -6,3 +6,12 @@ export const updateRestaurantId = (data) => {
     },
   };
 };
+
+export const updateCouponId = (data) => {
+  return {
+    type: "UPDATE_RESTAURANT_ID",
+    payload: {
+      data,
+    },
+  };
+};

@@ -7,7 +7,20 @@ import homeIcon from "../../static/Home.svg";
 
 const { Header } = Layout;
 
-const TopNav = ({ showHomeIcon = false }) => {
+const headerStyle = {
+  position: "fixed",
+  zIndex: 99,
+  width: "100%",
+  background: "#000000",
+  paddingLeft: 16,
+  paddingRight: 16,
+  paddingTop: 4,
+  paddingBottom: 4,
+  height: 72,
+  borderBottom: "1px solid rgba(255, 255, 255, 0.45)",
+};
+
+const TopNav = ({ showHomeIcon = false, restaurantId }) => {
   const history = useHistory();
   const [appHistory, setAppHistory] = useState(0);
 
@@ -22,20 +35,7 @@ const TopNav = ({ showHomeIcon = false }) => {
   }, [history.action]);
 
   return (
-    <Header
-      style={{
-        position: "fixed",
-        zIndex: 99,
-        width: "100%",
-        background: "#000000",
-        paddingLeft: 16,
-        paddingRight: 16,
-        paddingTop: 4,
-        paddingBottom: 4,
-        height: 72,
-        borderBottom: "1px solid rgba(255, 255, 255, 0.45)",
-      }}
-    >
+    <Header style={headerStyle}>
       <div style={{ display: "flex", alignItems: "center" }}>
         <div style={{ width: 48, textAlign: "center", marginRight: 8 }}>
           {appHistory > 0 && !showHomeIcon ? (
@@ -48,7 +48,13 @@ const TopNav = ({ showHomeIcon = false }) => {
             <img
               src={homeIcon}
               style={{ width: 24 }}
-              onClick={() => history.push("/")}
+              onClick={() => {
+                if (restaurantId) {
+                  history.push(`/restaurantId=${restaurantId}`)
+                } else {
+                  history.push(`/`)
+                }
+              }}
             />
           )}
         </div>

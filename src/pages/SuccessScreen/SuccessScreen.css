@@ -1,0 +1,4 @@
+.successLogo {
+  width: calc(calc(calc(100vw - 72px) / 6 * 4) + 24px);
+  height: calc(calc(calc(100vw - 72px) / 6 * 4) + 24px);
+}

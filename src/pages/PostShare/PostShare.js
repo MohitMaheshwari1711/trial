@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useHistory, useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { Layout, Divider, Button, Input, Form, Carousel, Row, Col } from "antd";
 import { DeleteOutlined, FacebookFilled } from "@ant-design/icons";
 import carouselFirstLogo from "../../static/carousel-1.svg";
@@ -10,6 +10,7 @@ import TopNav from "../../components/TopNav/TopNav";
 import OverlaySheet from "../../components/OverlaySheet/OverlaySheet";
 import { saveContent } from "../../api";
 import { updatePostUrl } from "./actions";
+import { updateRestaurantId } from "../../containers/App/actions";
 import "./PostShare.css";
 
 const { Content } = Layout;
@@ -31,28 +32,31 @@ const dividerStyle = {
 const PostShare = () => {
   const [form] = Form.useForm();
   const history = useHistory();
+  const { restaurantId } = useParams();
   const dispatch = useDispatch();
-  const { restaurantId } = useSelector((state) => state.shellReducer);
   const [openLogin, toggleLogin] = useState(false);
 
-  const submitContent = () =>
-    saveContent({
-      userId: "anujk",
-      url: form.getFieldValue("postUrl"),
-      restaurantId,
-    })
-      .then((response) => {
-        const data = response.data;
-        if (data.status === "Processing") {
-          toggleLogin(false);
-          history.push(`/waiting`);
-        }
+  const submitContent = () => {
+    if (restaurantId) {
+      dispatch(updateRestaurantId(restaurantId));
+      saveContent({
+        userId: "anujk",
+        url: form.getFieldValue("postUrl"),
+        restaurantId,
       })
-      .catch(() => toggleLogin(false));
-
+        .then((response) => {
+          const data = response.data;
+          if (data.status === "Processing") {
+            toggleLogin(false);
+            history.push(`/waiting/contentId=${data.contentId}`);
+          }
+        })
+        .catch(() => toggleLogin(false));
+    }
+  };
   return (
     <Layout>
-      <TopNav />
+      <TopNav restaurantId={restaurantId} />
       <Content className="site-layout marginTop72">
         <div className="site-layout-background paddingTop24 paddingLeft16 paddingRight16">
           <div>
